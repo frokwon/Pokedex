@@ -13,12 +13,10 @@ namespace Pokedex.Controllers
     [Route("[controller]")]
     public class PokemonController : ControllerBase
     {
-        private readonly ILogger<PokemonController> Logger;
         private readonly IRestClient RestClient;
 
-        public PokemonController(ILogger<PokemonController> logger, IRestClient restClient)
+        public PokemonController(IRestClient restClient)
         {
-            Logger = logger;
             RestClient = restClient;
         }
 
