@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,13 @@ namespace Pokedex.Controllers
     [Route("[controller]")]
     public class PokemonController : ControllerBase
     {
-        private readonly ILogger<PokemonController> _logger;
+        private readonly ILogger<PokemonController> Logger;
+        private readonly IRestClient RestClient;
 
-        public PokemonController(ILogger<PokemonController> logger)
+        public PokemonController(ILogger<PokemonController> logger, IRestClient restClient)
         {
-            _logger = logger;
+            Logger = logger;
+            RestClient = restClient;
         }
 
         [HttpGet]

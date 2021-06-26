@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace PokedexTests
 {
     [TestClass]
-    public class UnitTest1
+    public class PokemonTests
     {
         [TestMethod]
         public void TestMethod1()
