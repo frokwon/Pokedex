@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using Microsoft.Extensions.Configuration;
+using Moq;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -42,5 +43,21 @@ namespace PokedexTests
             }
             return string.Empty;
         }
+
+        public static IConfiguration GetTestConfiguration()
+        {
+            var myConfiguration = new Dictionary<string, string>
+            {
+                {"Endpoints:PokeApi", "https://www.test.com"},
+                {"Nested:Key1", "NestedValue1"},
+                {"Nested:Key2", "NestedValue2"}
+            };
+
+            return new ConfigurationBuilder()
+                .AddInMemoryCollection(myConfiguration)
+                .Build();
+
+        }
+
     }
 }
