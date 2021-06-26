@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PokemonServices.Models;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,13 @@ namespace Pokedex.Controllers
         }
 
         [HttpGet]
-        public IEnumerable Get()
+        public ActionResult<Pokemon> GetBasicInfo(string name)
+        {
+            throw new NotImplementedException();
+        }
+        
+        [HttpGet]
+        public ActionResult<Pokemon> GetTranslatedInfo(string name)
         {
             throw new NotImplementedException();
         }
