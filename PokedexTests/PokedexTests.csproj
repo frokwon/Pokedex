@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\BasicSamplePokemon.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BasicSamplePokemon.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CustomToolNamespace>PokedexTests</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
     <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.3" />
