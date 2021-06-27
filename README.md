@@ -1,4 +1,7 @@
 # Pokedex Version 1.0
+This application has been written in ASP.NET Core Web API, targeting .NET 5.0
+
+It should run on a non-Windows environment, although I have not been able to test this.
 ## How to run
 ### Running in Visual Studio
 This can be run by opening the solution file in Visual Studio, and opening the solution file (Pokedex.sln), and running it.
