@@ -11,7 +11,9 @@ using PokemonServices;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Pokedex
@@ -35,7 +37,11 @@ namespace Pokedex
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pokedex", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pokedex - Get Pokemon information", Version = "v1.0", Description = "Pokedex challenge application" });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 

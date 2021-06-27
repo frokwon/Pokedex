@@ -25,7 +25,11 @@ namespace PokemonServices
             TranslationService = translationService;
         }
         
-        
+        /// <summary>
+        /// Gets basic information for a supplied pokemon name
+        /// </summary>
+        /// <param name="name">Name of the pokemon</param>
+        /// <returns>Basic information in JSON format</returns>
         public Pokemon GetBasicInfo(string name)
         {
             var endPoint = Configuration["Endpoints:PokeApi"];
@@ -50,7 +54,11 @@ namespace PokemonServices
 
             return pokemon;
         }
-
+        /// <summary>
+        /// Gets translated information for a supplied pokemon name
+        /// </summary>
+        /// <param name="name">Name of the pokemon</param>
+        /// <returns>Translated information in JSON format</returns>
         public Pokemon GetTranslatedInfo(string name)
         {
             var pokemon = GetBasicInfo(name);

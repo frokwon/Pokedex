@@ -21,7 +21,14 @@ namespace Pokedex.Controllers
         {
             PokemonService = pokemonService;
         }
-
+        /// <summary>
+        /// Retrieve basic information for a Pokemon character
+        /// </summary>
+        /// <remarks>Retrieve basic information for a Pokemon character</remarks>
+        /// <param name="name">The name of the Pokemon character</param>
+        /// <response code="200">Returns basic information about the character</response>
+        /// <response code="404">If no information was found</response>
+        /// <returns></returns>
         [HttpGet]
         [Route("pokemon/{name}")]
         public IActionResult GetBasicInfo(string name)
@@ -40,7 +47,14 @@ namespace Pokedex.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-        
+        /// <summary>
+        /// Retrieve translated information for a Pokemon character
+        /// </summary>
+        /// <remarks>If the character's habitat is "cave" or the character is legendary, then the yoda translation is applied, otherwise the Shakespeare translation is applied</remarks>
+        /// <param name="name">The name of the Pokemon character</param>
+        /// <response code="200">Returns translated information about the character</response>
+        /// <response code="404">If no information was found</response>
+        /// <returns></returns>
         [HttpGet]
         [Route("pokemon/translated/{name}")]
         public ActionResult<Pokemon> GetTranslatedInfo(string name)
