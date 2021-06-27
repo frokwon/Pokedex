@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PokemonServices;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,9 @@ namespace Pokedex
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ITranslationService, TranslationService>();
+            services.AddScoped<IPokemonService, PokemonService>();
+            services.AddScoped<IRestClient, RestClient>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

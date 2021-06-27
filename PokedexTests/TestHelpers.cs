@@ -22,12 +22,15 @@ namespace PokedexTests
             var data = JsonConvert.DeserializeObject<T>(json);
             var response = new Mock<IRestResponse<T>>();
             response.Setup(_ => _.StatusCode).Returns(httpStatusCode);
-            response.Setup(_ => _.Data).Returns(data);
+            response.Setup(_ => _.Content).Returns(json);
 
             var mockIRestClient = new Mock<IRestClient>();
+           
             mockIRestClient.Setup(x => x.Execute<T>(It.IsAny<IRestRequest>())).Returns(response.Object);
             return mockIRestClient.Object;
         }
+
+        
 
         public static string GetFileContents(string sampleFile)
         {
@@ -49,8 +52,7 @@ namespace PokedexTests
             var myConfiguration = new Dictionary<string, string>
             {
                 {"Endpoints:PokeApi", "https://www.test.com"},
-                {"Nested:Key1", "NestedValue1"},
-                {"Nested:Key2", "NestedValue2"}
+                {"Endpoints:FunTranslationsApi", "https://www.test.com"}
             };
 
             return new ConfigurationBuilder()

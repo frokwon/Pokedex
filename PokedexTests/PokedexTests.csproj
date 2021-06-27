@@ -7,11 +7,31 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\BasicSamplePokemon.json" />
+    <None Remove="Resources\BasicSamplePokemonLegendary.json" />
+    <None Remove="Resources\BasicSamplePokemonNonLegendaryCave.json" />
+    <None Remove="Resources\BasicSamplePokemonOther.json" />
+    <None Remove="Resources\ShakespeareSample.json" />
+    <None Remove="Resources\YodaSample.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\BasicSamplePokemon.json">
+    <EmbeddedResource Include="Resources\BasicSamplePokemonOther.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CustomToolNamespace>PokedexTests</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BasicSamplePokemonNonLegendaryCave.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CustomToolNamespace>PokedexTests</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ShakespeareSample.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CustomToolNamespace>PokedexTests</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\YodaSample.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CustomToolNamespace>PokedexTests</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BasicSamplePokemonLegendary.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <CustomToolNamespace>PokedexTests</CustomToolNamespace>
     </EmbeddedResource>
