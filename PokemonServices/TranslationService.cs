@@ -38,7 +38,7 @@ namespace PokemonServices
                 var content = JsonConvert.DeserializeObject<dynamic>(response.Content);
                 return content.contents.translated;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 // if translation fails, then return the original text
                 return text;
