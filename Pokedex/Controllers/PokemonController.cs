@@ -45,7 +45,19 @@ namespace Pokedex.Controllers
         [Route("pokemon/translated/{name}")]
         public ActionResult<Pokemon> GetTranslatedInfo(string name)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var pokemon = PokemonService.GetTranslatedInfo(name);
+
+                if (pokemon == null)
+                    return NotFound("Pokemon not found");
+
+                return Ok(pokemon);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

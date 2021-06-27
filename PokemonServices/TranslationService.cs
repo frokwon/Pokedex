@@ -23,7 +23,7 @@ namespace PokemonServices
         {
             var endPoint = Configuration["Endpoints:FunTranslationsApi"];
 
-            RestClient.BaseUrl = new Uri($"{endPoint}/{type}");
+            RestClient.BaseUrl = new Uri($"{endPoint}{type}");
             var request = new RestRequest(Method.POST);
             request.AddParameter("text", text);
             var response = RestClient.Execute<dynamic>(request);
